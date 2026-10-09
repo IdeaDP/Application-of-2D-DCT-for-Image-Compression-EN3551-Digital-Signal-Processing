@@ -1,0 +1,374 @@
+\documentclass{article}
+\usepackage{titlesec}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, total={6.5in, 9.5in}]{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx} 
+\usepackage{lipsum} 
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{acronym}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{pgfplots}
+\usepackage{bm}
+\usepackage{circuitikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{caption}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{cleveref}
+\usepackage{algorithmic}
+\usepackage{textcomp}
+\usepackage{pdfpages}
+\usepackage{xcolor}
+\usepackage[numbers]{natbib}
+\usepackage{listings}
+
+\bibliographystyle{ieeetran}
+
+\pgfplotsset{compat=1.18}
+\usepackage{url}
+
+% Page headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{230155J}
+\lhead{\textit{EN3551} - Assignment 01}
+\cfoot{\thepage}
+
+% MATLAB code formatting
+\lstdefinestyle{mymatlab}{
+    language=Matlab,
+    backgroundcolor=\color{black!5},   
+    basicstyle=\ttfamily\small,        
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{purple},
+    commentstyle=\color{green!50!black}\itshape,
+    numbers=left,                      
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    frame=single,                      
+    breaklines=true,                   
+    showstringspaces=false
+}
+\begin{document}
+
+% Cover Page
+\begin{titlepage}
+    \centering
+    \vspace*{0.5cm}
+    \includegraphics[width=5cm]{logo.png}
+    \par\vspace{0.02cm}
+    
+    \textsf{\Large Department of Electronic \& Telecommunication Engineering,\\
+    University of Moratuwa, Sri Lanka.}
+    
+    \vspace{2cm}
+    {\LARGE\bfseries {Assignment 1 } \par}
+
+    \vspace{5.5cm}
+  
+    
+        230155J - Dissanayake D. M. D. P. \\
+        EN3551 - Digital Signal Processing \\
+  
+    
+    \vspace{1.0cm}
+    Date: \today
+    \vfill
+\end{titlepage}
+%------------------------------------------------
+%------------------------------------------------
+
+\newpage
+
+% Add your sections and subsections here
+\section*{3 Procedure}
+\subsection*{3.1 Harmonic Detection}
+
+\begin{itemize}
+    \item Index: 230155J
+    \item Signal set used: signal155.mat
+\end{itemize}
+
+\subsubsection*{3. DFT magnitude plot for S1,S2,S3,S4 and S5}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{DFT_first_128.png}
+    \caption{DFT Magnitude Plot First 128 points}
+    \label{fig:DFT_magnitude_plot}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{DFT_first_256.png}
+    \caption{DFT Magnitude Plot First 256 points}
+    \label{fig:DFT_magnitude_plot}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{DFT_first_512.png}
+    \caption{DFT Magnitude Plot First 512 points}
+    \label{fig:DFT_magnitude_plot}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{DFT_first_1024.png}
+    \caption{DFT Magnitude Plot First 1024 points}
+    \label{fig:DFT_magnitude_plot}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{DFT_first_1793.png}
+    \caption{DFT Magnitude Plot First 1793 points}
+    \label{fig:DFT_magnitude_plot}
+\end{figure}
+
+\par Here the signal is divided into partitions of varying size from 128,256,512,1024 and 1793. The DFT is calculated for each partition and the magnitude is plotted. The plots show the frequency components present in the signal for each partition size. As the partition size increases, the frequency resolution improves, allowing for a more detailed analysis of the signal's harmonic content.
+
+
+\subsubsection*{4. DFT Averaging Method for 128 point Partitions}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{DFT_Averaging.png}
+    \caption{DFT Averaging Method for 128 point Partitions}
+    \label{fig:DFT_averaging_plot}
+\end{figure}
+
+\par Here the partition sixe is fixed to 128 points. Then the DFT is calculated on each partition and averaged. Maginitude of the averaged DFT is plotted. The averaging method helps to reduce noise and improve the accuracy of the frequency analysis. The plot shows the frequency components present in the signal after applying the averaging method.
+
+\par \textbf{Frequency components 11Hz, 25Hz and 37Hz is detected in the signal.}
+
+\subsubsection*{5 Detecting the smallest value for L}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{DFT_Averaging_L4.png}
+    \caption{DFT averaging plot with L=4}
+    \label{fig:DFT_averaging_L_plot}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{DFT_Averaging_L5.png}
+    \caption{DFT averaging plot with L=5}
+    \label{fig:DFT_averaging_L_plot}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{DFT_Averaging_L6.png}
+    \caption{DFT averaging plot with L=6}
+    \label{fig:DFT_averaging_L_plot}
+\end{figure}
+
+\par By getting the DFT with different L values it is observed that the \textbf{smallest value for L is 5}. Which means that we need to consider at least the first 5 partitions of 128 point length with averaging to detect harmonics clearly.
+\subsubsection*{6 Using other K values (like K = 100 or K = 135)? and explanation}
+\par Using different K values like 100 or 135 will result in less accurate resolutions in frequency. It is observed that due to the signal length 1792 is not divisible by 100 or 135, the last partition will have less than required number of points. This will result in a less accurate DFT calculation for that partition. This can affect the overall accuracy of the frequency analysis. Therefore, it is recommended to use K values that are factors of the signal length to ensure accurate DFT calculations for all partitions.
+\par By zero padding or neglecting the last partition the accurate results can be obtained but there is some loss due to this.
+\subsection*{3.2 Interpolation}
+
+\subsection*{ Comparsion of first 50 samples of  {$x_2$}, {$x_3$} and {$x_4$} with the original signal}
+\subsubsection*{3.(a) Interpolation of {$x_2$} with K = 1}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Interpolation_x2_K1.png}
+    \caption{Interpolation of {$x_2$} with K = 1}
+    \label{fig:Interpolation_x2_K1}
+\end{figure}
+
+\textbf{Error with 2 norm :} 6.1447
+
+
+\subsubsection*{3.(b) Interpolation of {$x_3$} with K = 2}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Interpolation_x3_K2.png}
+    \caption{Interpolation of {$x_3$} with K = 2}
+    \label{fig:Interpolation_x3_K2}
+\end{figure}
+
+\textbf{Error with 2 norm :} 8.3652
+
+\subsubsection*{3.(c) Interpolation of {$x_4$} with K = 3}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Interpolation_x4_K3.png}
+    \caption{Interpolation of {$x_4$} with K = 3}
+    \label{fig:Interpolation_x4_K3}
+\end{figure}
+\textbf{Error with 2 norm :} 23.4998
+
+\subsubsection*{4.Discussion of the observations and comments}
+
+\begin{itemize}
+    \item \textbf{2 Norm Error increases with the loss of data}: Here $x_2$ has retained 50\% and $x_3$ retained 33.33\% and $x_4$ retained 25\% of the data.Errors respectively are 6.1447,8.3652 and 23.4998. So the error grow up as expected.
+    \item Here if we consider the relative errors copared to norm of original signal, the relative errors are 23.35\% (x2), 31.79\% (x3), and 89.30\% (x4). For K=3 the loss is fairly high. This can be due to the downsampling effect. The higher frequencies are not well reconstructed due to this.
+    \item \textbf{Comparison of first 50 samples} : Althought the error has increased the plots of first 50 samples are fairly equal and comparable visually.This may be because the first 50 samples contain only lower frequencies of the song. $x_2$ is more identical than other two signals graphs. 
+    
+\end{itemize}
+
+
+\section*{Appendix}
+% MATLAB code formatting
+\begin{lstlisting}[style=mymatlab, caption={Matlab code for Section 3.1 Harmonic Detection}, label={lst:harmonic_detection}]
+data_set=load('signal155.mat','xn_test');
+
+x = data_set.xn_test;
+%Seperating the data set into parts
+
+x_partitions = containers.Map();
+x_partitions("S5") = x;
+
+for i = 1:4
+    start_index = 1;
+    final_index = 2^(i-1)*128;
+    x_partitions(sprintf('S%d',i)) = x(start_index:final_index);
+    fprintf("KEY %s",sprintf('S%d',i));
+    disp(length(x_partitions(sprintf('S%d',i))));
+end
+figure
+
+fs = 128;
+
+for i =1: length(keys(x_partitions))
+    s=x_partitions(sprintf('S%d',i));
+    N = length(s);
+    figure;
+    freq_spectrum = fs*(0:floor(N/2))/N;
+    Y = fft(s);
+    plot(freq_spectrum,abs(Y(1:floor(N/2)+1)));
+    title(sprintf('DFT magnitude plot of first %d partitions',N));
+end
+
+%DFT averaging method to remove noise
+
+num_of_partitions = 14;
+N = floor(length(x)/num_of_partitions);
+
+fft_sum = zeros(1,N);
+for i = 1:num_of_partitions
+    start_index = (i-1)*N+1;
+    final_index = i*N;
+
+    s = x(start_index:final_index);
+    fft_sum = fft_sum + fft(s);
+    
+end
+
+fft_sum = fft_sum/num_of_partitions;
+figure
+freq_spectrum = fs*(0:floor(N/2))/N;
+
+plot(freq_spectrum,abs(fft_sum(1:floor(N/2)+1)));
+title(sprintf('DFT plot with averaging method (14 partitions)'));
+
+K = 128;
+
+for L = 14:-1:1
+    figure;
+    X_avg = zeros(1,K);
+    for j = 1:L
+        seg = x((j-1)*K+1 : j*K);
+        X_avg = X_avg + fft(seg);
+    end
+    X_avg = X_avg / L;
+    plot((0:K/2)*(fs/K), abs(X_avg(1:K/2+1)));
+    title(sprintf('L = %d', L));
+end
+\end{lstlisting}
+
+\begin{lstlisting}[style=mymatlab, caption={Matlab code for Section 3.2 Interpolation in frequency domain}, label={lst:interpolation}]
+load handel;
+N = 20000;
+x = y(1:N);
+disp(class(x));
+
+x2 = y(1:2:N);
+x3 = y(1:3:N);
+x4 = y(1:4:N);
+
+%Interpolation of x2 with k=1
+X2_dft = fft(x2);
+N_x2 = length(x2);          
+N2 = N_x2/2;
+K=1;
+X2_z = [X2_dft(1:N2); X2_dft(N2+1)/2 ;zeros(K*N_x2-1,1);X2_dft(N2+1)/2;X2_dft(N2+2:N_x2);];
+
+y_Interp = real(ifft(X2_z)*(K+1));
+y_trimmed = y_Interp((1:(K+1)*(N_x2-1)+1));
+
+M = min(length(y_trimmed), length(x));
+error_2Norm = norm(y_trimmed(1:M) - x(1:M));
+
+%comparison of waveforms
+figure;
+plot(1:50, x(1:50), 'b-', 'LineWidth', 1.5);
+hold on;
+plot(1:50, y_trimmed(1:50), 'r--', 'LineWidth', 1.5);
+hold off;
+legend('Original x', 'Interpolated x2 (K=1)');
+xlabel('Sample index');
+ylabel('Amplitude');
+title('Comparison of first 50 samples: Original vs Interpolated');
+grid on;
+
+%Interpolation of x3 with k=2
+X3_dft = fft(x3);
+N_x3 = length(x3);          
+N2 = (N_x3+1)/2;
+K=2;
+X3_z = [X3_dft(1:N2); zeros(K*N_x3,1); X3_dft(N2+1:N_x3)];
+
+y_Interp = real(ifft(X3_z)*(K+1));
+y_trimmed = y_Interp((1:(K+1)*(N_x3-1)+1));
+
+M = min(length(y_trimmed), length(x));
+error_2Norm = norm(y_trimmed(1:M) - x(1:M));
+
+%comparison of waveforms
+figure;
+plot(1:50, x(1:50), 'b-', 'LineWidth', 1.5);
+hold on;
+plot(1:50, y_trimmed(1:50), 'r--', 'LineWidth', 1.5);
+hold off;
+legend('Original x', 'Interpolated x3 (K=2)');
+xlabel('Sample index');
+ylabel('Amplitude');
+title('Comparison of first 50 samples: Original vs Interpolated');
+grid on;
+
+% Interpolation of x4 with K=3
+K = 3;
+X4_dft = fft(x4);
+N_x4 = length(x4);              % 5000, even
+N2 = N_x4/2;
+X4_z = [X4_dft(1:N2); X4_dft(N2+1)/2; zeros(K*N_x4-1,1); X4_dft(N2+1)/2; X4_dft(N2+2:N_x4)];
+
+y_Interp = real(ifft(X4_z)*(K+1));
+y_trimmed = y_Interp(1:(K+1)*(N_x4-1)+1);
+
+M = min(length(y_trimmed), length(x));
+error_2Norm = norm(y_trimmed(1:M) - x(1:M));
+
+figure;
+plot(1:50, x(1:50), 'b-', 'LineWidth', 1.5);
+hold on;
+plot(1:50, y_trimmed(1:50), 'r--', 'LineWidth', 1.5);
+hold off;
+legend('Original x', 'Interpolated x4 (K=3)');
+xlabel('Sample index');
+ylabel('Amplitude');
+title('Comparison of first 50 samples: Original vs Interpolated (x4, K=3)');
+grid on;
+\end{lstlisting}
+
+
+\end{document}
