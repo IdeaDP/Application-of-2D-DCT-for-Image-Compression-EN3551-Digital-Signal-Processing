@@ -1,0 +1,1 @@
+Image compression using the 2D Discrete Cosine Transform (DCT) in Python: block-wise DCT, coefficient truncation, and reconstruction, with quality evaluation on standard test images (Barbara, Boats, Peppers) and a Sigiriya photo.
